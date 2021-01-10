@@ -23,22 +23,28 @@ pygame.display.set_caption("move square")
 color = 255,255,0
 left = 0
 top = 0
-sideLength = 150
+length = 150
+height = 200
 width = 2
 x = 1
 y = 1
+xx = 1
+yy = 1 
 tipe = 1
-
 point_x = 10+left
 point_y = 10+top
-circle_left = 0
-circle_top = 0
+circle_left = 100
+circle_top = 50
 circle_radius = 10
 circle_width = 2
+circle = [point_x,point_y,circle_left,circle_top,circle_radius,circle_width]
+
+
+
 
 def move_square():
     pygame.time.delay(5)
-    pygame.draw.rect(screen,color,[left,top,sideLength,sideLength],width,0)
+    pygame.draw.rect(screen,color,[left,top,length,height],width,0)
 def modify_square():
     global tipe
     global y
@@ -47,16 +53,24 @@ def modify_square():
     global left
     left += x
     top += y
-    if (left+sideLength) >= 500 or left < 0:
+    if (left+length) >= 500 or left < 0:
         x = -x
-    if (top+sideLength) >= 600 or top < 0:
+    if (top+height) >= 600 or top < 0:
         y = -y
-def move_circle(point_x,point_y,circle_radius,circle_width,circle_left,circle_top):
-    pygame.draw.circle(screen,color,[point_x+circle_left,point_y+circle_top],circle_radius,circle_width)
-def modify_circle(point_x,point_y,circle_left,circle_top,circle_radius,circle_width):
-    circle_left += 1
-    circle_top += 1
-    move_circle(point_x,point_y,circle_radius,circle_width,circle_left,circle_top)
+def move_circle(circle):
+    pygame.draw.circle(screen,color,[circle[0]+circle[2],circle[1]+circle[3]],circle[4],circle[5])
+def modify_circle(circle):
+    global xx
+    global yy
+    circle[0] = 10+left
+    circle[1] = 10+top
+    circle[2] += xx
+    circle[3] += yy
+    if circle[2] >= 140 or circle[2] <= 0:
+        xx = -xx
+    if circle[3] >= 190 or circle[3] <= 0:
+        yy = -yy
+    move_circle(circle)
     
     
 while True:
@@ -68,5 +82,5 @@ while True:
     screen.fill(dark)
     move_square()
     modify_square()
-    modify_circle(point_x,point_y,circle_left,circle_top,circle_radius,circle_width)
+    modify_circle(circle)
     pygame.display.update()      

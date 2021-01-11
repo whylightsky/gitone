@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+'''
 import pygame
 from pygame.locals import *
 import sys
 import time
-'''
+
 1：Hello World
 pygame.init()
 screen = pygame.display.set_mode((500,600))
@@ -38,9 +39,6 @@ circle_top = 50
 circle_radius = 10
 circle_width = 2
 circle = [point_x,point_y,circle_left,circle_top,circle_radius,circle_width]
-
-
-
 
 def move_square():
     pygame.time.delay(5)
@@ -86,7 +84,15 @@ while True:
     pygame.display.update()      
 '''
 #3:画大饼
+
+import pygame
+from pygame.locals import *
+
 pygame.init()
+screen = pygame.display.set_mode((600,500))
+pygame.display.set_caption("Drop ball")
+
+            
 #4:飞机大战
 
 

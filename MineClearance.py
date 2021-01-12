@@ -83,16 +83,47 @@ while True:
     modify_circle(circle)
     pygame.display.update()      
 '''
-#3:画大饼
+#3:掉球游戏
 
-import pygame
+import pygame,random,sys,time
 from pygame.locals import *
 
 pygame.init()
 screen = pygame.display.set_mode((600,500))
 pygame.display.set_caption("Drop ball")
+color = 255,255,0
+rect_baffle_x,rect_baffle_y,rect_baffle_w,rect_baffle_h = 250,460,100,40
+circle_ball_x,circle_ball_y,circle_ball_r,circle_ball_w = random.randint(30,570),30,30,2
+rect_baffle = [rect_baffle_x,rect_baffle_y,rect_baffle_w,rect_baffle_h]
+circle_ball = [circle_ball_x,circle_ball_y,circle_ball_r,circle_ball_w]
+move_x,move_y = 0,1
+move = [move_x,move_y]
+def ball_move(circle_ball,move):
+    circle_ball[1] += move_y
+    
+    
 
-            
+
+
+
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+        if event.type == KEYDOWN:
+            if event.key == K_LEFT:
+                if rect_baffle[0] > 0:
+                    rect_baffle[0] -= 10
+            if event.key == K_RIGHT:
+                if rect_baffle[0] < 500:
+                    rect_baffle[0] += 10
+    screen.fill((0,0,0))
+    pygame.time.delay(5)    ```
+    pygame.draw.rect(screen, color, (rect_baffle[0],rect_baffle[1],rect_baffle[2],rect_baffle[3]),2)
+    pygame.draw.circle(screen, color,(circle_ball[0],circle_ball[1]),circle_ball[2],circle_ball[3])
+    ball_move(circle_ball,move)
+    pygame.display.update()
 #4:飞机大战
 
 

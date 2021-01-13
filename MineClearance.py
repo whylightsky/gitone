@@ -130,7 +130,7 @@ while True:
                     rect_baffle[0] += 20
                 move[2] = 1
     screen.fill((0,0,0)) 
-    pygame.time.delay(5)
+    pygame.time.delay(10)
     ball_move(circle_ball,move)
     pygame.draw.rect(screen, color, (rect_baffle[0],rect_baffle[1],rect_baffle[2],rect_baffle[3]),2)
     pygame.draw.circle(screen, color,(circle_ball[0],circle_ball[1]),circle_ball[2],circle_ball[3]) 

@@ -98,6 +98,9 @@ circle_ball = [circle_ball_x,circle_ball_y,circle_ball_r,circle_ball_w]
 move_x,move_y,move_flag = 0,1,0
 move = [move_x,move_y,move_flag]
 
+def print_text():
+    
+
 def ball_move(circle_ball,move):
     circle_ball[1] += move[1]
     circle_ball[0] += move[0]

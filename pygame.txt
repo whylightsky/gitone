@@ -1,0 +1,30 @@
+import pygame   #导入pygame库
+from pygame.locals import *  #导入pygame所有的常量
+
+import sys,time,random
+
+sys.exit()
+pygame.time.delay()
+random.randint(x,y)
+
+pygame.init()   #初始化pygame
+screen = pygame.display.set_mode((600,500)) #创建窗口并且设置窗口大小
+pygame.display.set_caption("drop ball") #设置窗口名称
+
+while True: #while死循环
+    for event in pygame.event.get(): #pygame事件获取
+        if event.type == QUIT:  #如果事件类型为退出时 
+            pygame.quit()   #退出
+     
+pygame.display.update() #刷新界面
+pygame.display.filp()   #刷新界面
+pygame.draw.line(screen,color(0,0,0),起点(0,0),终点(0,0),width) #画线
+pygame.draw.rect(screen,color,(x,y,宽,高),width)  #画矩形
+pygame.draw.circle(screen,color,圆心(x,y),直径,width)   #画圆形
+
+myfont = pygame.font.Font(None,60)  #首先创建文字对象
+textimage = myfont.render("Hello Pygame",（是否抗锯齿）True,color) #渲染文字
+screen.fill(color) #使用颜色清屏
+screen.blit(textimage,(位置)(x,y))  #绘制文字                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+
